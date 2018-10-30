@@ -89,6 +89,8 @@ function! s:in_curl_format(request) abort
 
     let l:flags = l:flags.' '.g:vim_http_additional_curl_args
 
+    let l:flags = l:flags.' --http'.a:request.version
+
     let l:method = printf(' -X %s', a:request.method)
 
     let l:url = shellescape(a:request.uri)

@@ -98,6 +98,18 @@ function! s:suite.get_with_body_params()
     call s:assert_response('get_body_params')
 endfunction
 
+function! s:suite.http_1_0()
+    call s:load_request_expected('http_1_0')
+    Http!
+    call s:assert_response('http_1_0')
+endfunction
+
+function! s:suite.http_1_1()
+    call s:load_request_expected('http_1_1')
+    Http!
+    call s:assert_response('http_1_1')
+endfunction
+
 function! s:suite.redirect()
     call s:load_request_expected('redirect')
     Http
@@ -109,6 +121,7 @@ function! s:suite.redirect_with_follow()
     Http!
     call s:assert_response('redirect_follow')
 endfunction
+
 " }}}
 " POST :{{{1
 function! s:suite.post_json()
